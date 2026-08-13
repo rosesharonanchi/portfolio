@@ -17,7 +17,7 @@ export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-[#080911]/80 border-b border-white/5">
+    <header className="fixed top-0 left-0 right-0 z-[100] w-full backdrop-blur-md bg-[#080911]/80 border-b border-white/5">
       <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
         {/* Brand Name / Logo */}
         <Link 
