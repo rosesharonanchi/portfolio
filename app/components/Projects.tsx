@@ -3,42 +3,12 @@
 import { motion } from "framer-motion";
 import { useState, useRef } from "react";
 import Image from "next/image";
-import { ExternalLink } from "lucide-react";
+import Link from "next/link";
+import { ExternalLink, ArrowRight } from "lucide-react";
+import { projects, type Project } from "../data/projects";
 
-const projects = [
-  {
-    title: "Student P2P Campus Marketplace",
-    category: "Full-Stack Web App",
-    description:
-      "A full-stack marketplace platform allowing university students in Cameroon to safely buy and sell used textbooks and furniture. Features document-upload verification preventing fake account signups by 95% in testing.",
-    tech: ["Next.js", "Go", "Tailwind CSS", "PostgreSQL"],
-    image: "/project-marketplace.jpg",
-    github: "https://github.com/rosesharonanchi",
-    demo: "#",
-  },
-  {
-    title: "Personal Finance Tracker",
-    category: "Data Visualization",
-    description:
-      "An intuitive dashboard for tracking expenses and budgeting. Features interactive charts and predictive spending analysis using historical data, backed by a Go service handling 500+ entries with zero calculation errors.",
-    tech: ["TypeScript", "Next.js", "Go", "SQL"],
-    image: "/project-finance.jpg",
-    github: "https://github.com/rosesharonanchi",
-    demo: "#",
-  },
-  {
-    title: "Brand E-Commerce Website & SEO",
-    category: "E-Commerce & Optimization",
-    description:
-      "A high-performance web platform built for a local brand with an emphasis on responsive design and fast navigation. Implemented technical SEO, metadata, and image optimization to increase organic traffic by 45%.",
-    tech: ["React.js", "Tailwind CSS", "Vercel"],
-    image: "/project-ecommerce.jpg",
-    github: "https://github.com/rosesharonanchi",
-    demo: "#",
-  },
-];
 
-function GlowProjectCard({ project }: { project: (typeof projects)[0] }) {
+export function GlowProjectCard({ project }: { project: Project }) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [opacity, setOpacity] = useState(0);
@@ -58,9 +28,8 @@ function GlowProjectCard({ project }: { project: (typeof projects)[0] }) {
       onMouseMove={handleMouseMove}
       onMouseEnter={() => setOpacity(1)}
       onMouseLeave={() => setOpacity(0)}
-      className="group relative rounded-2xl card-glass border border-white/10 overflow-hidden transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-1.5 hover:shadow-[0_15px_35px_rgba(99,102,241,0.25)] p-6 md:p-8"
+      className="group relative rounded-2xl card-glass border border-white/10 overflow-hidden transition-all duration-300 transform hover:scale-[1.01] hover:-translate-y-1 hover:shadow-[0_15px_35px_rgba(99,102,241,0.25)] p-6 md:p-8"
     >
-      {/* Edge-Only Glow Mask */}
       <div
         className="pointer-events-none absolute -inset-[1px] rounded-2xl transition-opacity duration-300 z-30"
         style={{
@@ -74,20 +43,31 @@ function GlowProjectCard({ project }: { project: (typeof projects)[0] }) {
         }}
       />
 
-      {/* Card Body */}
       <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-        {/* Project Image */}
-        <div className="lg:col-span-7 relative aspect-video rounded-xl overflow-hidden border border-white/5 bg-[#0a0c16]">
-          <Image
-            src={project.image}
-            alt={project.title}
-            fill
-            className="object-cover group-hover:scale-105 transition-transform duration-500"
-            sizes="(max-width: 1024px) 100vw, 60vw"
-          />
+        <div className="lg:col-span-7 w-full rounded-xl overflow-hidden border border-white/10 bg-[#080911]/90 shadow-2xl transition-transform duration-500 group-hover:scale-[1.02]">
+          <div className="h-8 bg-[#121526]/90 border-b border-white/10 px-3 flex items-center justify-between">
+            <div className="flex items-center gap-1.5">
+              <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
+              <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
+              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
+            </div>
+            <div className="hidden sm:flex items-center justify-center px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10 text-[10px] font-mono text-gray-400">
+              https://{project.domain}
+            </div>
+            <div className="w-10" />
+          </div>
+
+          <div className="relative aspect-video w-full overflow-hidden bg-slate-900">
+            <Image
+              src={project.image}
+              alt={project.title}
+              fill
+              className="object-cover object-top group-hover:scale-105 transition-transform duration-700 ease-out"
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            />
+          </div>
         </div>
 
-        {/* Project Info */}
         <div className="lg:col-span-5 flex flex-col justify-between h-full">
           <div>
             <span className="text-xs font-mono text-indigo-400 font-semibold block mb-2 uppercase tracking-wider">
@@ -102,7 +82,6 @@ function GlowProjectCard({ project }: { project: (typeof projects)[0] }) {
           </div>
 
           <div>
-            {/* Tech Badges */}
             <div className="flex flex-wrap gap-2 mb-6">
               {project.tech.map((t) => (
                 <span
@@ -114,7 +93,6 @@ function GlowProjectCard({ project }: { project: (typeof projects)[0] }) {
               ))}
             </div>
 
-            {/* Links */}
             <div className="flex items-center gap-4">
               <a
                 href={project.github}
@@ -153,10 +131,11 @@ function GlowProjectCard({ project }: { project: (typeof projects)[0] }) {
 }
 
 export default function Projects() {
+  const featuredProjects = projects.slice(0, 3);
+
   return (
     <section id="projects" className="py-20 relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
-        {/* Section Header */}
         <div className="flex items-center gap-4 mb-16">
           <span className="text-xs font-mono text-indigo-400 font-semibold">
             03.
@@ -167,17 +146,16 @@ export default function Projects() {
           <div className="h-[1px] bg-white/10 flex-grow max-w-xs" />
         </div>
 
-        {/* Projects Stack */}
         <div className="flex flex-col gap-10">
-          {projects.map((project, index) => (
+          {featuredProjects.map((project, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.7, y: 50 }}
+              key={project.title}
+              initial={{ opacity: 0, scale: 0.95, y: 30 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{
                 type: "spring",
-                bounce: 0.4,
+                bounce: 0.3,
                 duration: 0.8,
                 delay: index * 0.15,
               }}
@@ -185,6 +163,19 @@ export default function Projects() {
               <GlowProjectCard project={project} />
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <Link
+            href="/projects"
+            className="inline-flex items-center gap-2 font-mono text-xs uppercase tracking-wider px-6 py-3.5 rounded-xl bg-indigo-500/10 border border-indigo-500/30 text-indigo-300 hover:bg-indigo-500 hover:text-white transition-all duration-300 shadow-[0_0_20px_rgba(99,102,241,0.2)] group"
+          >
+            <span>View All Projects</span>
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform"
+            />
+          </Link>
         </div>
       </div>
     </section>

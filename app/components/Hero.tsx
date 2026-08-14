@@ -123,7 +123,7 @@ export default function Hero() {
         >
           <div className="relative w-full max-w-md aspect-square rounded-2xl overflow-hidden border border-indigo-500/20 shadow-2xl shadow-indigo-950/60">
             <Image
-              src="/hero-profile.jpg"
+              src="/hero-profile.png"
               alt="Rose Sharon Anchi"
               fill
               priority
