@@ -111,6 +111,7 @@ export default function About() {
 
           {/* Education Journey Cards */}
           <div className="lg:col-span-5 flex flex-col gap-6">
+            {/* University */}
             <motion.div
               initial={{ opacity: 0, scale: 0.7, y: 50 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -137,6 +138,7 @@ export default function About() {
               </GlowBorderCard>
             </motion.div>
 
+            {/* A-Level */}
             <motion.div
               initial={{ opacity: 0, scale: 0.7, y: 50 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -154,7 +156,9 @@ export default function About() {
                     <h3 className="text-base font-bold text-white">
                       Advanced Level
                     </h3>
-                    <p className="text-sm text-gray-400">GCE Advanced Level</p>
+                    <p className="text-sm text-gray-400">
+                      B.G.S Molyko Buea (GCE A-Level)
+                    </p>
                   </div>
                   <span className="text-xs font-mono text-indigo-300 bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/30 shadow-[0_0_10px_rgba(99,102,241,0.2)]">
                     Score: 23 / 25
@@ -163,6 +167,7 @@ export default function About() {
               </GlowBorderCard>
             </motion.div>
 
+            {/* O-Level */}
             <motion.div
               initial={{ opacity: 0, scale: 0.7, y: 50 }}
               whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -180,7 +185,9 @@ export default function About() {
                     <h3 className="text-base font-bold text-white">
                       Ordinary Level
                     </h3>
-                    <p className="text-sm text-gray-400">GCE Ordinary Level</p>
+                    <p className="text-sm text-gray-400">
+                      B.G.S Molyko Buea (GCE O-Level)
+                    </p>
                   </div>
                   <span className="text-xs font-mono text-indigo-300 bg-indigo-500/10 px-2.5 py-1 rounded-full border border-indigo-500/30 shadow-[0_0_10px_rgba(99,102,241,0.2)]">
                     Score: 29 / 33
