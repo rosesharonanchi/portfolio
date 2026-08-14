@@ -46,7 +46,7 @@ export default function Hero() {
   }, [text, isDeleting, phraseIndex]);
 
   return (
-    <section className="relative pt-40 sm:pt-36 md:pt-24 lg:pt-28 pb-20 md:pb-32 overflow-hidden z-10">
+    <section className="relative pt-28 sm:pt-24 md:pt-20 lg:pt-24 pb-20 md:pb-32 overflow-hidden z-10">
       <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         {/* Left Column */}
         <motion.div
