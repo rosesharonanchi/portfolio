@@ -32,16 +32,27 @@ export const projects: Project[] = [
     demo: "https://piggy-save-kappa.vercel.app",
     domain: "piggy-save-kappa.vercel.app",
   },
+  // {
+  //   title: "Brand E-Commerce Website & SEO",
+  //   category: "E-Commerce & Optimization",
+  //   description:
+  //     "A high-performance web platform built for a local brand with an emphasis on responsive design and fast navigation. Implemented technical SEO, metadata, and image optimization to increase organic traffic by 45%.",
+  //   tech: ["React.js", "Tailwind CSS", "Vercel"],
+  //   image: "/project-ecommerce.jpg",
+  //   github: "https://github.com/rosesharonanchi",
+  //   demo: "#",
+  //   domain: "brandstore.com",
+  // },
   {
-    title: "Brand E-Commerce Website & SEO",
-    category: "E-Commerce & Optimization",
+    title: "Modern Developer Portfolio",
+    category: "Full-Stack & UI/UX",
     description:
-      "A high-performance web platform built for a local brand with an emphasis on responsive design and fast navigation. Implemented technical SEO, metadata, and image optimization to increase organic traffic by 45%.",
-    tech: ["React.js", "Tailwind CSS", "Vercel"],
-    image: "/project-ecommerce.jpg",
-    github: "https://github.com/rosesharonanchi",
-    demo: "#",
-    domain: "brandstore.com",
+      "My personal engineering portfolio built with Next.js App Router, React, Tailwind CSS, and Framer Motion. Features dark-mode aesthetics, custom mouse-tracking border glow, smooth scroll animations, and optimized SEO.",
+    tech: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
+    image: "/project-portfolio.jpg",
+    github: "https://github.com/rosesharonanchi/My-portfolio",
+    demo: "https://portfolio-tau-gules-mfy5mwgd8w.vercel.app/",
+    domain: "portfolio-tau-gules-mfy5mwgd8w.vercel.app",
   },
   {
     title: "Interactive Web Quiz App",
@@ -54,15 +65,5 @@ export const projects: Project[] = [
     demo: "https://quiz-app-roan-eight-38.vercel.app/",
     domain: "quiz-app-roan-eight-38.vercel.app",
   },
-  {
-    title: "Modern Developer Portfolio",
-    category: "Full-Stack & UI/UX",
-    description:
-      "My personal engineering portfolio built with Next.js App Router, React, Tailwind CSS, and Framer Motion. Features dark-mode aesthetics, custom mouse-tracking border glow, smooth scroll animations, and optimized SEO.",
-    tech: ["Next.js", "React", "Tailwind CSS", "Framer Motion"],
-    image: "/project-portfolio.jpg",
-    github: "https://github.com/rosesharonanchi/My-portfolio",
-    demo: "https://portfolio-tau-gules-mfy5mwgd8w.vercel.app/",
-    domain: "portfolio-tau-gules-mfy5mwgd8w.vercel.app",
-  },
+  
 ];
